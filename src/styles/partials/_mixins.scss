@@ -17,3 +17,81 @@
     @content;
   }
 }
+//align
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin margin-align {
+  margin: $margin-mobile;
+  @include tablet {
+    margin: $margin-tablet;
+  }
+  @include desktop {
+    width: $width-desktop;
+    margin: $margin-desktop;
+  }
+}
+@mixin padding-title {
+  padding-top: $padding-top-mobile;
+  padding-bottom: $padding-bottom-mobile;
+
+  @include tablet {
+    padding-top: $padding-top-tablet;
+    padding-bottom: $padding-bottom-tablet;
+  }
+}
+
+//font-style
+@mixin text-style($a, $b) {
+  font-size: $a;
+  line-height: $b;
+}
+@mixin body-copy {
+  @include text-style(0.813rem, 1.125rem);
+  font-family: "avenir-next";
+  font-weight: 400;
+  @include tablet {
+    @include text-style(0.875rem, 1.375rem);
+  }
+}
+@mixin labels {
+  @include text-style(0.625rem, 1.25rem);
+  font-family: "avenir-next";
+  font-weight: 700;
+  @include tablet {
+    @include text-style(0.75rem, 1.25rem);
+  }
+}
+@mixin section-header {
+  @include text-style(1.5rem, 2rem);
+  font-family: "avenir-next";
+  font-weight: 700;
+  @include tablet {
+    @include text-style(2.25rem, 2.75rem);
+  }
+}
+@mixin sub-header {
+  @include text-style(0.875rem, 1.375rem);
+  font-family: "avenir-next";
+  font-weight: 600;
+  @include tablet {
+    @include text-style(1.5rem, 2rem);
+  }
+}
+
+//other
+@mixin avatar-img {
+  vertical-align: middle;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  @include tablet {
+    width: 3rem;
+    height: 3rem;
+  }
+}

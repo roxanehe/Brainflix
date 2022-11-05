@@ -1,0 +1,82 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-comment {
+  margin: $margin-mobile;
+  @include tablet {
+    margin: 0 15vw;
+  }
+  @include desktop {
+    margin: 0 27vw;
+  }
+}
+.form {
+  @include flex-row;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid $silver;
+  &__comment {
+    @include flex-column;
+    width: 90%;
+  }
+  &__img {
+    @include avatar-img;
+  }
+  &__label {
+    color: $silver;
+    @include labels;
+    margin: 0.5rem 0;
+  }
+  &__button {
+    background-color: $black;
+    color: $white;
+    height: 3rem;
+    border-radius: 7px;
+    margin: 1rem 0 0.5rem 0;
+    @include sub-header;
+    font-weight: 600;
+    @include tablet {
+      @include labels;
+      width: 40%;
+      align-self: flex-end;
+      &:hover {
+        background-color: $black;
+      }
+    }
+  }
+}
+.title--margin {
+  @include margin-align;
+}
+#comment,
+#name {
+  border-radius: 4px;
+  border: 1px solid $silver;
+  background-color: $white;
+  padding: 0.75rem;
+  font-family: "avenir-next";
+  @include tablet {
+    padding: 1rem;
+  }
+}
+#comment {
+  resize: none;
+}
+#name:focus,
+#comment:focus {
+  outline: none;
+  border: 1px solid $black;
+}
+#name::placeholder,
+#comment::placeholder {
+  color: $black;
+  @include labels;
+  font-weight: 400;
+}
+#comment {
+  height: 6rem;
+  @include tablet {
+    height: 8rem;
+  }
+}
