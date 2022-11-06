@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video {
+  @include flex-row;
+  flex-wrap: wrap;
+  &__image {
+    width: 10rem;
+    height: 5rem;
+  }
+}

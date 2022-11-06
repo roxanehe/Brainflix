@@ -2,7 +2,7 @@ import "./Comment.scss";
 import avatar from "../../assets/Images/Mohan-muruge.jpg";
 
 const Comment = (props) => {
-  const { key, name, comment, time } = props;
+  const { id, name, comment, time } = props;
   return (
     <div className="comment">
       <img src={avatar} alt="avatar-img" className="comment__img" />
