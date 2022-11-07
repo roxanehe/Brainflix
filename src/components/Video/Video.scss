@@ -3,9 +3,27 @@
 
 .video {
   @include flex-row;
-  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
   &__image {
-    width: 10rem;
-    height: 5rem;
+    width: 25%;
+    max-height: 5rem;
+    border-radius: 4px;
+  }
+  &__content {
+    height: 100%;
+    @include flex-column;
+    gap: 2.5rem;
+    @include desktop {
+      gap: 1rem;
+    }
+  }
+  &__title {
+    @include body-copy;
+    font-weight: 600;
+  }
+  &__channel {
+    @include body-copy;
   }
 }

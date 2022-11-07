@@ -11,8 +11,8 @@ function Video(props) {
     <div className="video" onClick={handleVideoSelect}>
       <img className="video__image" src={image} alt={title} />
       <div className="video__content">
-        <h3 className="video__title">{title}</h3>
-        <h4 className="video__channel">{channel}</h4>
+        <span className="video__title">{title}</span>
+        <span className="video__channel">{channel}</span>
       </div>
     </div>
   );

@@ -5,32 +5,25 @@ import Comment from "../Comment/Comment";
 function Comments(props) {
   return (
     <>
-      <h2 className="title title--margin">Join the Conversation</h2>
-      <section className="form-comment">
-        <form className="form">
-          <img src={avatar} alt="avatar-img" className="form__img" />
-          <div className="form__comment">
-            <label htmlFor="name" className="form__label">
-              NAME
-            </label>
-            <input
-              id="name"
-              name="commenter"
-              type="text"
-              placeholder="Enter your name"
-            />
-            <label htmlFor="comment" className="form__label">
-              COMMENT
-            </label>
-            <textarea
-              id="comment"
-              name="commentcontent"
-              placeholder="Add a new comment"
-            ></textarea>
-            <button className="form__button">COMMENT</button>
-          </div>
-        </form>
-      </section>
+      <h2 className="title">{props.currentvideo.comments.length} Comments</h2>
+      <div className="forms">
+        <img src={avatar} alt="avatar-img" className="form__img" />
+        <div className="form-button">
+          <form className="form">
+            <div className="form__comment">
+              <label htmlFor="comment" className="form__label">
+                JOIN THE CONVERSATION
+              </label>
+              <textarea
+                id="comment"
+                name="commentcontent"
+                placeholder="Add a new comment"
+              ></textarea>
+            </div>
+          </form>
+          <button className="button">COMMENT</button>
+        </div>
+      </div>
       <div className="comments">
         {props.currentvideo.comments.map((comment) => {
           return (

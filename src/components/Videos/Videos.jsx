@@ -8,6 +8,7 @@ function Videos(props) {
   });
   return (
     <div className="videos">
+      <h2 className="videostitle">NEXT VIDEOS</h2>
       {showVideo.map((video) => {
         return (
           <Video

@@ -1,82 +1,92 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.form-comment {
-  margin: $margin-mobile;
+.forms {
+  @include margin-align;
+  @include flex-row;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+.form-button {
+  @include flex-column;
+  align-items: flex-start;
+  width: 85%;
+  gap: 1rem;
   @include tablet {
-    margin: 0 15vw;
-  }
-  @include desktop {
-    margin: 0 27vw;
+    @include flex-row;
+    align-items: flex-end;
   }
 }
 .form {
   @include flex-row;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem;
-  border-bottom: 1px solid $silver;
+  width: 100%;
+
   &__comment {
     @include flex-column;
-    width: 90%;
+    width: 100%;
   }
   &__img {
     @include avatar-img;
+    margin-top: 2rem;
   }
   &__label {
     color: $silver;
     @include labels;
-    margin: 0.5rem 0;
-  }
-  &__button {
-    background-color: $black;
-    color: $white;
-    height: 3rem;
-    border-radius: 7px;
-    margin: 1rem 0 0.5rem 0;
-    @include sub-header;
-    font-weight: 600;
-    @include tablet {
-      @include labels;
-      width: 40%;
-      align-self: flex-end;
-      &:hover {
-        background-color: $black;
-      }
-    }
   }
 }
-.title--margin {
+.title {
   @include margin-align;
-}
-#comment,
-#name {
-  border-radius: 4px;
-  border: 1px solid $silver;
-  background-color: $white;
-  padding: 0.75rem;
-  font-family: "avenir-next";
-  @include tablet {
-    padding: 1rem;
-  }
+  @include body-copy;
+  font-weight: 700;
 }
 #comment {
+  border-radius: 4px;
+  border: 1px solid $mercury;
+  background-color: $white;
+  padding: 0.75rem;
   resize: none;
+  background-color: $alabsater;
+  height: 6rem;
+
+  @include tablet {
+    padding: 1rem;
+    height: 0.5rem;
+  }
 }
-#name:focus,
 #comment:focus {
   outline: none;
-  border: 1px solid $black;
+  border: 2px solid $blue;
 }
-#name::placeholder,
 #comment::placeholder {
   color: $black;
   @include labels;
   font-weight: 400;
 }
-#comment {
-  height: 6rem;
+.comments {
+  border-top: 1px solid $mercury;
+  @include margin-align;
+  margin-top: 1rem;
+}
+.button {
+  background-color: $blue;
+  background-image: url("../../assets/Icons/add_comment.svg");
+  background-repeat: no-repeat;
+  background-position-x: 0.5rem;
+  background-position-y: 0.5rem;
+  color: $white;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid white;
   @include tablet {
-    height: 8rem;
+    width: 40%;
+  }
+  @include desktop {
+    width: 35%;
+  }
+  &:hover {
+    background-color: $darkblue;
   }
 }

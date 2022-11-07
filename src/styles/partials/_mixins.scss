@@ -32,8 +32,7 @@
     margin: $margin-tablet;
   }
   @include desktop {
-    width: $width-desktop;
-    margin: $margin-desktop;
+    margin: 0;
   }
 }
 @mixin padding-title {
@@ -91,7 +90,7 @@
   height: 2.25rem;
   border-radius: 50%;
   @include tablet {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
