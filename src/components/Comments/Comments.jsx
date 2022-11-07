@@ -29,6 +29,7 @@ function Comments(props) {
           return (
             <>
               <Comment
+                key={comment.id}
                 id={comment.id}
                 name={comment.name}
                 comment={comment.comment}
