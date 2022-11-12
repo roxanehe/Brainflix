@@ -3,6 +3,9 @@ import image from "../../assets/Images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
 
 function Upload() {
+  function success() {
+    alert("uploaded!");
+  }
   return (
     <div className="upload__border">
       <div className="upload">
@@ -36,7 +39,7 @@ function Upload() {
         </div>
         <div className="upload__action">
           <Link to="/" className="upload__button">
-            <span>PUBLISH</span>
+            <span onClick={success}>PUBLISH</span>
           </Link>
           <span className="upload__cancel">CANCEL</span>
         </div>
