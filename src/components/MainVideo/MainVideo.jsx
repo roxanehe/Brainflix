@@ -1,10 +1,28 @@
 import "./MainVideo.scss";
 import viewicon from "../../assets/Icons/views.svg";
 import likeicon from "../../assets/Icons/likes.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const MainVideo = (props) => {
+const MainVideo = ({ currentvideo }) => {
+  const [mainvideoinfo, setmainvideoinfo] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://project-2-api.herokuapp.com/videos/${currentvideo}?api_key=7b608c79-658e-42b8-ba9a-61b83eb265da`
+      )
+      .then(({ data }) => {
+        setmainvideoinfo(data);
+      });
+  }, [currentvideo]);
+
+  if (mainvideoinfo === null) {
+    return <h1>is loading...</h1>;
+  }
+
   const { title, channel, timestamp, views, likes, description } =
-    props.currentvideo;
+    mainvideoinfo;
   const currentDate = new Date(timestamp);
   const currentDayOfMonth = currentDate.getDate();
   const currentMonth = currentDate.getMonth() + 1;

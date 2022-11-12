@@ -1,11 +1,29 @@
 import "./Comments.scss";
 import avatar from "../../assets/Images/Mohan-muruge.jpg";
 import Comment from "../Comment/Comment";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Comments(props) {
+function Comments({ currentvideo }) {
+  const [displaycomments, setdisplaycomments] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://project-2-api.herokuapp.com/videos/${currentvideo}?api_key=7b608c79-658e-42b8-ba9a-61b83eb265da`
+      )
+      .then(({ data }) => {
+        setdisplaycomments(data);
+      });
+  }, [currentvideo]);
+
+  if (displaycomments === null) {
+    return <h1>is loading...</h1>;
+  }
+
   return (
     <>
-      <h2 className="title">{props.currentvideo.comments.length} Comments</h2>
+      <h2 className="title">{displaycomments.comments.length} Comments</h2>
       <div className="forms">
         <img src={avatar} alt="avatar-img" className="form__img" />
         <div className="form-button">
@@ -25,7 +43,7 @@ function Comments(props) {
         </div>
       </div>
       <div className="comments">
-        {props.currentvideo.comments.map((comment) => {
+        {displaycomments.comments.map((comment) => {
           return (
             <>
               <Comment
