@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function Upload() {
   return (
-    <>
-      <h2 className="upload__title">Upload Video</h2>
+    <div className="upload__border">
       <div className="upload">
+        <h2 className="upload__title">Upload Video</h2>
         <div className="upload__content">
           <div className="upload__imgsection">
             <label className="upload__label">VIDEO THUMBNAIL</label>
@@ -18,6 +18,7 @@ function Upload() {
             </label>
             <input
               id="upload__video"
+              className="upload__video"
               name="commentcontent"
               placeholder="Add a title to your video"
               type="text"
@@ -27,6 +28,7 @@ function Upload() {
             </label>
             <textarea
               id="upload__descrip"
+              className="upload__descrip"
               name="commentcontent"
               placeholder="Add a description to your video"
             ></textarea>
@@ -39,7 +41,7 @@ function Upload() {
           <span className="upload__cancel">CANCEL</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default Upload;

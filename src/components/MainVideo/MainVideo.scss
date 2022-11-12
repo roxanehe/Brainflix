@@ -18,12 +18,12 @@
   }
   &__greyinfo {
     color: $silver;
+    font-weight: 400;
   }
   &__infoside {
     @include flex-column;
     @include tablet {
       @include flex-row;
-      @include labels;
       gap: 1rem;
     }
   }

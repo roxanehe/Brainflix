@@ -41,7 +41,13 @@
       margin-left: 60%;
     }
     &:focus {
-      background-image: none;
+      outline: none;
+      border: 2px solid $blue;
+    }
+    &::placeholder {
+      color: $black;
+      @include labels;
+      font-weight: 400;
     }
     &::placeholder {
       position: relative;

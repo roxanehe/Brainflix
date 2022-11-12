@@ -23,23 +23,26 @@ function Comments({ currentvideo }) {
 
   return (
     <>
-      <h2 className="title">{displaycomments.comments.length} Comments</h2>
-      <div className="forms">
+      <h2 className="form__title">
+        {displaycomments.comments.length} Comments
+      </h2>
+      <div className="form">
         <img src={avatar} alt="avatar-img" className="form__img" />
-        <div className="form-button">
-          <form className="form">
+        <div className="form__section">
+          <form className="form__singleform">
             <div className="form__comment">
               <label htmlFor="comment" className="form__label">
                 JOIN THE CONVERSATION
               </label>
               <textarea
                 id="comment"
+                className="form__commentcontent"
                 name="commentcontent"
                 placeholder="Add a new comment"
               ></textarea>
             </div>
           </form>
-          <button className="button">COMMENT</button>
+          <button className="form__button">COMMENT</button>
         </div>
       </div>
       <div className="comments">

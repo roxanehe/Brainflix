@@ -8,13 +8,13 @@
   gap: 1rem;
   &__image {
     width: 25%;
-    max-height: 5rem;
+    aspect-ratio: 2/1;
     border-radius: 4px;
   }
   &__content {
     height: 100%;
     @include flex-column;
-    gap: 2.5rem;
+    gap: 1.5rem;
     @include desktop {
       gap: 1rem;
     }

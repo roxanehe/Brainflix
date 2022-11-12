@@ -5,16 +5,3 @@ body {
   margin: 0;
   font-family: "avenir-next";
 }
-.videoinfo {
-  @include desktop {
-    @include flex-row;
-    margin: $margin-desktop;
-    max-width: $width-desktop;
-  }
-}
-.individeo {
-  @include desktop {
-    border-right: 1px solid $mercury;
-    width: 80%;
-  }
-}

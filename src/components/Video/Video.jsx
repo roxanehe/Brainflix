@@ -1,14 +1,7 @@
 import "./Video.scss";
 
-//import videodata from "../../assets/Data/videos.json";
-
 function Video(props) {
   const { title, channel, image } = props;
-
-  // const findMatch = videodata.find((video) => {
-  //   const doesMatch = video.id === id;
-  //   return doesMatch;
-  // });
 
   return (
     <div className="video">

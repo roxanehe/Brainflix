@@ -19,6 +19,15 @@ function Videoview({ currentvideo }) {
     return <h1>is loading...</h1>;
   }
 
-  return <video controls width="100%" height="100%" poster={mainvideo.image} />;
+  return (
+    <div className="videoview">
+      <video
+        className="videoview__content"
+        controls
+        width="100%"
+        poster={mainvideo.image}
+      />
+    </div>
+  );
 }
 export default Videoview;

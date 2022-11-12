@@ -7,6 +7,9 @@
     max-width: 1020px;
     margin: 0 auto;
   }
+  &__border {
+    border-top: 1px solid $mercury;
+  }
   &__content {
     @include flex-column;
     @include tablet {
@@ -22,20 +25,12 @@
   &__title {
     @include section-header;
     margin: 0;
-    border-top: 1px solid $mercury;
-    padding: 1rem;
-    @include tablet {
-      padding: 36px;
-    }
-    @include desktop {
-      width: 1020px;
-      padding: 0 auto;
-    }
+    padding: 1rem 0;
   }
   &__form {
     @include flex-column;
     @include desktop {
-      height: 10rem;
+      //height: 10rem;
       width: 70vw;
     }
   }
@@ -56,7 +51,7 @@
   }
   &__label {
     color: $silver;
-    @include sub-header;
+    @include body-copy;
     margin: 0.5rem 0;
   }
   &__action {
@@ -102,23 +97,41 @@
       background-color: $darkblue;
     }
   }
-}
-#upload__video {
-  font-family: "avenir-next";
-  background-color: $alabsater;
-  border: 1px solid $mercury;
-  padding: 0.5rem;
+  &__video {
+    font-family: "avenir-next";
+    background-color: $alabsater;
+    border: 1px solid $mercury;
+    padding: 0.5rem;
+    &:focus {
+      outline: none;
+      border: 2px solid $blue;
+    }
+    &::placeholder {
+      color: $black;
+      @include labels;
+      font-weight: 400;
+    }
+  }
+  &__descrip {
+    color: $darkblack;
+    font-family: "avenir-next";
+    background-color: $alabsater;
+    border: 1px solid $mercury;
+    padding: 0.5rem;
+    height: 4rem;
+    &:focus {
+      outline: none;
+      border: 2px solid $blue;
+    }
+    &::placeholder {
+      color: $black;
+      @include labels;
+      font-weight: 400;
+    }
+  }
 }
 input::placeholder {
   color: $darkblack;
-}
-#upload__descrip {
-  color: $darkblack;
-  font-family: "avenir-next";
-  background-color: $alabsater;
-  border: 1px solid $mercury;
-  padding: 0.5rem;
-  height: 4rem;
 }
 textarea::placeholder {
   color: $darkblack;
