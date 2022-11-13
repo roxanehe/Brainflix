@@ -41,7 +41,13 @@
       margin-left: 60%;
     }
     &:focus {
-      background-image: none;
+      outline: none;
+      border: 2px solid $blue;
+    }
+    &::placeholder {
+      color: $black;
+      @include labels;
+      font-weight: 400;
     }
     &::placeholder {
       position: relative;
@@ -67,6 +73,9 @@
     background-position-x: 0.5rem;
     background-position-y: 0.5rem;
     color: $white;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
     width: 100%;
     height: 40px;
     border-radius: 4px;

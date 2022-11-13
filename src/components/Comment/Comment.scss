@@ -25,10 +25,10 @@
   }
   &__time {
     @include body-copy;
-    font-weight: 600;
     color: $silver;
   }
   &__img {
+    background-color: $mercury;
     @include avatar-img;
   }
 }

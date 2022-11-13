@@ -1,3 +1,17 @@
-video {
-  object-fit: cover;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.videoview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $darkblack;
+  &__content {
+    @include tablet {
+      width: 90%;
+    }
+    @include desktop {
+      width: 70%;
+    }
+  }
 }

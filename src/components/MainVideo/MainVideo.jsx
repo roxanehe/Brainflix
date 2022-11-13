@@ -1,24 +1,46 @@
 import "./MainVideo.scss";
 import viewicon from "../../assets/Icons/views.svg";
 import likeicon from "../../assets/Icons/likes.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const MainVideo = (props) => {
-  const { title, channel, timestamp, views, likes, description } =
-    props.currentvideo;
-  const currentDate = new Date(timestamp);
-  const currentDayOfMonth = currentDate.getDate();
-  const currentMonth = currentDate.getMonth() + 1;
-  const currentYear = currentDate.getFullYear();
-  let dateString;
-  if (currentMonth < 10 && currentDayOfMonth < 10) {
-    dateString = `0${currentMonth}/0${currentDayOfMonth}/${currentYear}`;
-  } else if (currentDayOfMonth < 10) {
-    dateString = `${currentMonth}/0${currentDayOfMonth}/${currentYear}`;
-  } else if (currentMonth < 10) {
-    dateString = `0${currentMonth}/${currentDayOfMonth}/${currentYear}`;
-  } else {
-    dateString = `${currentMonth}/${currentDayOfMonth}/${currentYear}`;
+const MainVideo = ({ currentvideo }) => {
+  function convertime(datetoconvert) {
+    const currentDate = new Date(datetoconvert);
+    const currentDayOfMonth = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+    let dateString;
+    if (currentMonth < 10 && currentDayOfMonth < 10) {
+      dateString = `0${currentMonth}/0${currentDayOfMonth}/${currentYear}`;
+    } else if (currentDayOfMonth < 10) {
+      dateString = `${currentMonth}/0${currentDayOfMonth}/${currentYear}`;
+    } else if (currentMonth < 10) {
+      dateString = `0${currentMonth}/${currentDayOfMonth}/${currentYear}`;
+    } else {
+      dateString = `${currentMonth}/${currentDayOfMonth}/${currentYear}`;
+    }
+    return dateString;
   }
+  const [mainvideoinfo, setmainvideoinfo] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://project-2-api.herokuapp.com/videos/${currentvideo}?api_key=7b608c79-658e-42b8-ba9a-61b83eb265da`
+      )
+      .then(({ data }) => {
+        setmainvideoinfo(data);
+      });
+  }, [currentvideo]);
+
+  if (mainvideoinfo === null) {
+    return <h1>is loading...</h1>;
+  }
+
+  const { title, channel, timestamp, views, likes, description } =
+    mainvideoinfo;
+
   return (
     <div>
       <div className="mainvideo__sec">
@@ -26,7 +48,7 @@ const MainVideo = (props) => {
         <div className="mainvideo__info">
           <div className="mainvideo__infoside">
             <h3>By {channel}</h3>
-            <h3 className="mainvideo__greyinfo">{dateString}</h3>
+            <h3 className="mainvideo__greyinfo">{convertime(timestamp)}</h3>
           </div>
 
           <div className="mainvideo__infoside">
