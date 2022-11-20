@@ -9,18 +9,41 @@ import "./Singlevideo.scss";
 
 export default function Singlevideo() {
   const { id } = useParams();
+  const SERVER_API = "http://localhost:8000";
+  const videolistlink = "/videos/";
 
-  const URL =
-    "https://project-2-api.herokuapp.com/videos?api_key=7b608c79-658e-42b8-ba9a-61b83eb265da";
+  const API_URL = SERVER_API + videolistlink;
   const [videodata, setvideodata] = useState([]);
-  useEffect(() => {
-    axios.get(URL).then((resp) => {
-      setvideodata(resp.data);
-    });
-  }, []);
 
   const defaultValue = videodata.length > 0 ? videodata[0].id : null;
   const selectedvideoId = id || defaultValue;
+
+  let API_URL_current = SERVER_API + videolistlink + `${selectedvideoId}`;
+  const [currentVideo, setCurrentVideo] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(API_URL)
+      .then((resp) => {
+        setvideodata(resp.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (videodata.length === 0) {
+      return;
+    }
+    axios.get(API_URL_current).then((res) => {
+      setCurrentVideo(res.data);
+    });
+  }, [selectedvideoId, videodata]);
+
+  if (currentVideo === null || undefined) {
+    return <h1>is loading...</h1>;
+  }
 
   const filteredvideo = videodata.filter((video) => {
     return video.id !== selectedvideoId;
@@ -28,11 +51,11 @@ export default function Singlevideo() {
 
   return (
     <>
-      <Videoview currentvideo={selectedvideoId} />
+      <Videoview currentvideo={currentVideo} />
       <div className="videoinfo">
         <div className="videoinfo__current">
-          <MainVideo currentvideo={selectedvideoId} />
-          <Comments currentvideo={selectedvideoId} />
+          <MainVideo currentvideo={currentVideo} />
+          <Comments currentvideo={currentVideo} />
         </div>
         <div className="videoinfo__other">
           <Videos videoList={filteredvideo} />
