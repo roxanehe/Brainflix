@@ -26,8 +26,9 @@ function Comments({ currentvideo }) {
           <button className="form__button">COMMENT</button>
         </div>
       </div>
+
       <div className="comments">
-        {currentvideo.comments.map((comment) => {
+        {commentsArray.map((comment) => {
           return (
             <>
               <Comment

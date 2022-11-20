@@ -1,6 +1,6 @@
-import "./Videoview.scss";
+import "./VideoView.scss";
 
-function Videoview({ currentvideo }) {
+function VideoView({ currentvideo }) {
   return (
     <div className="videoview">
       <video
@@ -12,4 +12,4 @@ function Videoview({ currentvideo }) {
     </div>
   );
 }
-export default Videoview;
+export default VideoView;

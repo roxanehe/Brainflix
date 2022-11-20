@@ -38,7 +38,7 @@
     @include flex-column;
     width: 90%;
   }
-  &__imgsection {
+  &__img-section {
     @include flex-column;
   }
   &__img {
@@ -112,7 +112,7 @@
       font-weight: 400;
     }
   }
-  &__descrip {
+  &__description {
     color: $darkblack;
     font-family: "avenir-next";
     background-color: $alabsater;

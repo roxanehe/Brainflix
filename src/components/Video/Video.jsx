@@ -1,8 +1,6 @@
 import "./Video.scss";
 
-function Video(props) {
-  const { title, channel, image } = props;
-
+function Video({ title, channel, image }) {
   return (
     <div className="video">
       <img className="video__image" src={image} alt={title} />

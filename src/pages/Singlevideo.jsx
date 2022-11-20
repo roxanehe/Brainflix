@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MainVideo from "../components/MainVideo/MainVideo";
-import Videoview from "../components/Videoview/Videoview";
+import VideoView from "../components/VideoView/VideoView";
 import Comments from "../components/Comments/Comments";
 import Videos from "../components/Videos/Videos";
-import "./Singlevideo.scss";
+import "./SingleVideo.scss";
 
 export default function Singlevideo() {
   const { id } = useParams();
@@ -13,9 +13,9 @@ export default function Singlevideo() {
   const videolistlink = "/videos/";
 
   const API_URL = SERVER_API + videolistlink;
-  const [videodata, setvideodata] = useState([]);
+  const [videoData, setVideoData] = useState([]);
 
-  const defaultValue = videodata.length > 0 ? videodata[0].id : null;
+  const defaultValue = videoData.length > 0 ? videoData[0].id : null;
   const selectedvideoId = id || defaultValue;
 
   let API_URL_current = SERVER_API + videolistlink + `${selectedvideoId}`;
@@ -25,7 +25,7 @@ export default function Singlevideo() {
     axios
       .get(API_URL)
       .then((resp) => {
-        setvideodata(resp.data);
+        setVideoData(resp.data);
       })
       .catch((error) => {
         console.log(error);
@@ -33,32 +33,37 @@ export default function Singlevideo() {
   }, []);
 
   useEffect(() => {
-    if (videodata.length === 0) {
+    if (videoData.length === 0) {
       return;
     }
-    axios.get(API_URL_current).then((res) => {
-      setCurrentVideo(res.data);
-    });
-  }, [selectedvideoId, videodata]);
+    axios
+      .get(API_URL_current)
+      .then((res) => {
+        setCurrentVideo(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [selectedvideoId, videoData]);
 
   if (currentVideo === null || undefined) {
     return <h1>is loading...</h1>;
   }
 
-  const filteredvideo = videodata.filter((video) => {
+  const filteredVideo = videoData.filter((video) => {
     return video.id !== selectedvideoId;
   });
 
   return (
     <>
-      <Videoview currentvideo={currentVideo} />
+      <VideoView currentvideo={currentVideo} />
       <div className="videoinfo">
         <div className="videoinfo__current">
           <MainVideo currentvideo={currentVideo} />
           <Comments currentvideo={currentVideo} />
         </div>
         <div className="videoinfo__other">
-          <Videos videoList={filteredvideo} />
+          <Videos videoList={filteredVideo} />
         </div>
       </div>
     </>

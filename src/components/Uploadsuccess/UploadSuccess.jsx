@@ -1,8 +1,8 @@
-import "./Uploadsuccess.scss";
+import "./UploadSuccess.scss";
 import image from "../../assets/Images/success.jpg";
 import { useNavigate } from "react-router-dom";
 
-function Uploadsuccess() {
+function UploadSuccess() {
   const navigate = useNavigate();
   return (
     <div className="upload">
@@ -14,4 +14,4 @@ function Uploadsuccess() {
     </div>
   );
 }
-export default Uploadsuccess;
+export default UploadSuccess;
