@@ -5,6 +5,7 @@ import MainVideo from "../components/MainVideo/MainVideo";
 import VideoView from "../components/VideoView/VideoView";
 import Comments from "../components/Comments/Comments";
 import Videos from "../components/Videos/Videos";
+import loadingImage from "../assets/Images/loading.jpg";
 import "./SingleVideo.scss";
 
 export default function Singlevideo() {
@@ -47,7 +48,12 @@ export default function Singlevideo() {
   }, [selectedvideoId, videoData]);
 
   if (currentVideo === null || undefined) {
-    return <h1>is loading...</h1>;
+    return (
+      <div className="loading">
+        <h1 className="loading__content">is loading...</h1>
+        <img className="loading__img" src={loadingImage} alt="loading" />
+      </div>
+    );
   }
 
   const filteredVideo = videoData.filter((video) => {
