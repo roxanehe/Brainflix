@@ -7,7 +7,6 @@ app.use(express.json());
 app.use(express.static("public"));
 
 const videoRoutes = require("./routes/video.js");
-
 app.use("/videos", videoRoutes);
 
 app.listen(port, () =>
