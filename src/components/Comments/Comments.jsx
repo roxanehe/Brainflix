@@ -17,10 +17,17 @@ function Comments({ currentvideo }) {
               </label>
               <textarea
                 id="comment"
-                className="form__commentcontent"
+                className="form__comment-content"
                 name="commentcontent"
                 placeholder="Add a new comment"
               ></textarea>
+              <input
+                id="comment"
+                type="text"
+                className="form__comment-content--tablet"
+                name="commentcontent"
+                placeholder="Add a new comment"
+              ></input>
             </div>
           </form>
           <button className="form__button">COMMENT</button>

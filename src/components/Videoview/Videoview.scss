@@ -3,9 +3,13 @@
 
 .videoview {
   width: 100%;
+  aspect-ratio: 2/1;
   display: flex;
   justify-content: center;
   background-color: $darkblack;
+  @include desktop {
+    aspect-ratio: 2.5/1;
+  }
   &__content {
     @include tablet {
       width: 90%;

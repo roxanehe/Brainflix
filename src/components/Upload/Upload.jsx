@@ -10,7 +10,6 @@ function Upload() {
   const postapi_url = "http://localhost:8000/videos/";
   const navigate = useNavigate();
 
-  //form validation
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -49,7 +48,7 @@ function Upload() {
         })
         .then((response) => {
           navigate("/UploadSuccess");
-          console.log("upload video successfully");
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -94,15 +93,15 @@ function Upload() {
               placeholder="Add a description to your video"
               onChange={handleChangeDescription}
             ></textarea>
-            <button className="upload__button" type="submit">
-              PUBLISH
-            </button>
+            <div className="upload__action">
+              <button className="upload__button" type="submit">
+                PUBLISH
+              </button>
+              <span className="upload__cancel" onClick={() => navigate("/")}>
+                CANCEL
+              </span>
+            </div>
           </form>
-        </div>
-        <div className="upload__action">
-          <button className="upload__cancel" onClick={() => navigate("/")}>
-            CANCEL
-          </button>
         </div>
       </div>
     </div>

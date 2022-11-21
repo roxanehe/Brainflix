@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 function UploadSuccess() {
   const navigate = useNavigate();
   return (
-    <div className="upload">
-      <button className="upload__button" onClick={() => navigate("/")}>
+    <div className="uploadSuccess">
+      <button className="uploadSuccess__button" onClick={() => navigate("/")}>
         Back to Home
       </button>
-      <img className="upload__img" src={image} alt="success" />
-      <h3 className="upload__title">Upload successfully!</h3>
+      <img className="uploadSuccess__img" src={image} alt="success" />
+      <h3 className="uploadSuccess__title">Upload successfully!</h3>
     </div>
   );
 }

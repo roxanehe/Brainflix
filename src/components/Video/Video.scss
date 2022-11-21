@@ -6,6 +6,9 @@ a {
   text-decoration: none;
 }
 .video {
+  @include desktop {
+    width: 20rem;
+  }
   @include flex-row;
   align-items: center;
   width: 100%;
