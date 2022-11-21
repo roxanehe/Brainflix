@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import Header from "./components/Header/Header";
-import Upload from "./components/Upload/Upload";
-import SingleVideo from "./pages/SingleVideo";
-import UploadSuccess from "./components/UploadSuccess/UploadSuccess";
+import Header from "./components/Header/Header.jsx";
+import Upload from "./components/Upload/Upload.jsx";
+import SingleVideo from "./pages/SingleVideo.jsx";
+import UploadSuccess from "./components/UploadSuccess/UploadSuccess.jsx";
 
 function App() {
   return (

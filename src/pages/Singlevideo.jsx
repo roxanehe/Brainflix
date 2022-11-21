@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import MainVideo from "../components/MainVideo/MainVideo";
-import VideoView from "../components/VideoView/VideoView";
-import Comments from "../components/Comments/Comments";
-import Videos from "../components/Videos/Videos";
+import MainVideo from "../components/MainVideo/MainVideo.jsx";
+import VideoView from "../components/VideoView/VideoView.jsx";
+import Comments from "../components/Comments/Comments.jsx";
+import Videos from "../components/Videos/Videos.jsx";
 import loadingImage from "../assets/Images/loading.jpg";
 import "./SingleVideo.scss";
 
-export default function Singlevideo() {
+export default function SingleVideo() {
   const { id } = useParams();
   const SERVER_API = "http://localhost:8000";
   const videolistlink = "/videos/";
