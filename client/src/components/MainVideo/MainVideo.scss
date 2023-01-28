@@ -1,0 +1,46 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.mainvideo {
+  &__sec {
+    @include margin-align;
+  }
+  &__info {
+    @include flex-row;
+    gap: 10rem;
+    @include body-copy;
+    border-top: 1px solid $mercury;
+    border-bottom: 1px solid $mercury;
+    @include tablet {
+      justify-content: space-between;
+      border-top: none;
+    }
+  }
+  &__greyinfo {
+    color: $silver;
+    font-weight: 400;
+  }
+  &__infoside {
+    @include flex-column;
+    @include tablet {
+      @include flex-row;
+      gap: 1rem;
+    }
+  }
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  &__iconinfo {
+    @include flex-row;
+    align-items: center;
+    gap: 0.5rem;
+    @include desktop {
+      padding-right: 1rem;
+    }
+  }
+  &__content {
+    @include body-copy;
+    padding-right: 1rem;
+  }
+}

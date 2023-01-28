@@ -1,0 +1,22 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/variables" as *;
+
+.videoinfo {
+  @include desktop {
+    @include flex-row;
+    margin: $margin-desktop;
+    max-width: $width-desktop;
+  }
+  &__current {
+    @include desktop {
+      border-right: 1px solid $mercury;
+    }
+  }
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  &__image {
+    width: 3rem;
+  }
+}
